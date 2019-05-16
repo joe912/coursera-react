@@ -5,8 +5,11 @@ import {
   CardImgOverlay,
   CardText,
   CardBody,
-  CardTitle
+  CardTitle,
+  Breadcrumb,
+  BreadcrumbItem
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 function RenderComments({ comments }) {
   const commentsOutput = comments.map(comment => {
@@ -49,11 +52,23 @@ function RenderDish({ dish }) {
 }
 
 const DishDetail = props => {
-  if (props.selectedDish != null) {
+  if (props.dish != null) {
     return (
       <div className="container">
-        <RenderDish dish={props.selectedDish} />
-        <RenderComments comments={props.selectedDish.comments} />
+        <div className="row">
+          <Breadcrumb>
+            <BreadcrumbItem>
+              <Link to="/menu">Menu</Link>
+            </BreadcrumbItem>
+            <BreadcrumbItem active>{props.dish.name}}</BreadcrumbItem>
+          </Breadcrumb>
+          <div className="col-12">
+            <h3>{props.dish.name}</h3>
+            <hr />
+          </div>
+        </div>
+        <RenderDish dish={props.dish} />
+        <RenderComments comments={props.comments} />
       </div>
     );
   } else {
