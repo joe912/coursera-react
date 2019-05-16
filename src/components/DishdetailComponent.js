@@ -57,7 +57,7 @@ const DishDetail = props => {
       </div>
     );
   } else {
-    return <div>No dish selected</div>;
+    return <div />;
   }
 };
 
