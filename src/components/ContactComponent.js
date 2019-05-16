@@ -13,7 +13,7 @@ function Contact(props) {
           <BreadcrumbItem active>Contact Us</BreadcrumbItem>
         </Breadcrumb>
         <div className="col-12">
-          <h3>Menu</h3>
+          <h3>Contact Us</h3>
           <hr />
         </div>
       </div>

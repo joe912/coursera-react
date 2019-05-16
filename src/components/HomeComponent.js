@@ -5,9 +5,7 @@ import {
   CardText,
   CardBody,
   CardTitle,
-  CardSubtitle,
-  Breadcrumb,
-  BreadcrumbItem
+  CardSubtitle
 } from "reactstrap";
 
 function RenderCard({ item }) {
