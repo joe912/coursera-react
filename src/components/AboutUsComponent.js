@@ -8,11 +8,16 @@ import {
   Media
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import RenderLeader from "./RenderLeaderComponent";
 
 function About(props) {
   const leaders = props.leaders.map(leader => {
-    return <p>Leader {leader.name}</p>;
+    return <RenderLeader leader={leader} />;
   });
+
+  // const leaders = props.leaders.map(leader => {
+  //   return <p>Leader {leader.name}</p>;
+  // });
 
   return (
     <div className="container">
