@@ -13,8 +13,6 @@ import {
 import { Link } from "react-router-dom";
 
 function RenderLeader(props) {
-  console.log("Render Leader ");
-  console.log(props);
   return (
     <div key={props.leader.id} className="col-12 mt-5">
       <Media tag="li">
