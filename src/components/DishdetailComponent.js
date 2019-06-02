@@ -10,6 +10,7 @@ import {
   BreadcrumbItem
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import CommentForm from "./CommentFormComponent";
 
 function RenderComments({ comments }) {
   const commentsOutput = comments.map(comment => {
@@ -28,22 +29,24 @@ function RenderComments({ comments }) {
     );
   });
 
-  return commentsOutput;
+  return (
+    <div className="col-12 col-md-6">
+      <h4>Comments</h4>
+      {commentsOutput}
+      <CommentForm />
+    </div>
+  );
 }
 
 function RenderDish({ dish }) {
   return (
-    <div className="row">
-      <div className="col-12 col-md-5 m-1">
-        <Card>
-          <CardImg width="100%" src={dish.image} alt={dish.name} />
-          <CardBody>
-            <CardTitle>{dish.name}</CardTitle>
-            <CardText>{dish.description}</CardText>
-          </CardBody>
-        </Card>
-      </div>
-    </div>
+    <Card>
+      <CardImg width="100%" src={dish.image} alt={dish.name} />
+      <CardBody>
+        <CardTitle>{dish.name}</CardTitle>
+        <CardText>{dish.description}</CardText>
+      </CardBody>
+    </Card>
   );
 }
 
@@ -63,8 +66,12 @@ const DishDetail = props => {
             <hr />
           </div>
         </div>
-        <RenderDish dish={props.dish} />
-        <RenderComments comments={props.comments} />
+        <div className="row">
+          <div className="col-12 col-md-5 m-1">
+            <RenderDish dish={props.dish} />
+          </div>
+          <RenderComments comments={props.comments} />
+        </div>
       </div>
     );
   } else {
