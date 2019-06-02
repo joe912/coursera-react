@@ -41,15 +41,23 @@ class Main extends Component {
     };
 
     const DishWithId = ({ match }) => {
+      var x = this.props.comments.filter(
+        c => c.dishId === parseInt(match.params.dishid, 10)
+      );
+      var y = this.props.dishes.filter(
+        dish => dish.id === parseInt(match.params.dishid, 10)
+      )[0];
+
+      debugger;
       return (
         <DishdetailComponent
           dish={
             this.props.dishes.filter(
-              dish => dish.id === parseInt(match.params.dishId, 10)
+              dish => dish.id === parseInt(match.params.dishid, 10)
             )[0]
           }
           comments={this.props.comments.filter(
-            c => c.dishId === parseInt(match.params.dishId, 10)
+            c => c.dishId === parseInt(match.params.dishid, 10)
           )}
         />
       );

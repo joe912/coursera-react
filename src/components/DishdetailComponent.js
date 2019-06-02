@@ -43,10 +43,6 @@ function RenderDish({ dish }) {
           </CardBody>
         </Card>
       </div>
-      <div className="col-12 col-md-5">
-        <h2>Comments</h2>
-        <RenderComments comments={dish.comments} />
-      </div>
     </div>
   );
 }
