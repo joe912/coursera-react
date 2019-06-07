@@ -40,6 +40,12 @@ class CommentForm extends Component {
   handleSubmitComment(values) {
     this.toggleModal();
     alert("Form values:" + JSON.stringify(values));
+    this.props.addComment(
+      this.props.dishId,
+      values.rating,
+      values.author,
+      values.comment
+    );
   }
 
   render() {
@@ -129,7 +135,7 @@ class CommentForm extends Component {
   }
 }
 
-function RenderComments({ comments }) {
+function RenderComments({ comments, addComment, dishId }) {
   const commentsOutput = comments.map(comment => {
     return (
       <li key={comment.id} className="list-unstyled">
@@ -150,7 +156,7 @@ function RenderComments({ comments }) {
     <div className="col-12 col-md-6">
       <h4>Comments</h4>
       {commentsOutput}
-      <CommentForm />
+      <CommentForm dishId={dishId} addComment={addComment} />
     </div>
   );
 }
@@ -187,7 +193,11 @@ const DishDetail = props => {
           <div className="col-12 col-md-5 m-1">
             <RenderDish dish={props.dish} />
           </div>
-          <RenderComments comments={props.comments} />
+          <RenderComments
+            comments={props.comments}
+            addComment={props.addComment}
+            dishId={props.dish.id}
+          />
         </div>
       </div>
     );
