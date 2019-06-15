@@ -1,3 +1,8 @@
+TO START THE JSON SERVER:
+json-server --watch db.json -d 2000 -p 3001
+
+(USE THE FILE db.json IN FOLDER data-for-json-server)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
