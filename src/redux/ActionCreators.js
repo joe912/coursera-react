@@ -251,7 +251,12 @@ export const postFeedback = (
         throw errmess;
       }
     )
-    .then(response => console.log("Added feedback"))
+    .then(response => response.json())
+    .then(response => {
+      console.log("Added feedback: ", JSON.stringify(response));
+      var x = JSON.stringify(response);
+      alert("Added feedback: " + x);
+    })
     .catch(error => {
       console.log("Post feedback: " + error.message);
     });
