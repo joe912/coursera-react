@@ -104,7 +104,7 @@ class Main extends Component {
           <CSSTransition
             key={this.props.location.key}
             classNames="page"
-            timeout="300"
+            timeout={300}
           >
             <Switch>
               <Route path="/home" component={HomePage} />
